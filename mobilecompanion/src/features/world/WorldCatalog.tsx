@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import { Worlds } from "../app/models/Worlds";
-import { getWorlds } from "../services/GetWorlds";
-import { getToken } from "../services/apiAuth";
+import { Worlds } from "../../app/models/Worlds";
+import { getToken } from "../../services/apiAuth";
+import { getWorlds } from "../../services/GetWorlds";
 import Worldlist from "./WorldList";
 
 export default function WorldCatalog() {

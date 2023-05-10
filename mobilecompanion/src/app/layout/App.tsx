@@ -1,8 +1,8 @@
 import './styles.css';
 import Header from "./Header";
 import { Container, CssBaseline, ThemeProvider, createTheme } from "@mui/material";
-import WorldCatalog from "../../features/WorldCatalog";
 import { useState } from 'react';
+import { Outlet } from 'react-router-dom';
 
 
 function App() {
@@ -26,10 +26,9 @@ function App() {
       <CssBaseline />
       <Header darkMode={darkMode} handleTheme={handleTheme}/>
       <Container>
-        <WorldCatalog />
+        <Outlet />
       </Container>
     </ThemeProvider>
   );
 }
-
 export default App;

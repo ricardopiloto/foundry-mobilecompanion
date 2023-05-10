@@ -1,11 +1,9 @@
-export async function getActors(token) {
-    let request = fetch('http://tossurrpg.servegame.com:5011/api/v1/actors/forgotten-realms/id/5Yrs4VHePHS8FIbc', {
-        method: 'GET',
-        headers: {
-            'Authorization': 'Bearer ' + String(token),
-        },
-    })
+import axios from "axios";
+import ApiInfo from "../helpers/apiInfo";
+
+export async function getActors(token, selectedWorld) {
+    const AuthStr = `Bearer ${token}`;
+    const request = await axios.get(axios.get(`${ApiInfo()}/api/v1/actors/${selectedWorld}`), {headers: {Authorization: AuthStr}});
     const response = await request;
-    const parsed = await response.json();
-    return (parsed)
+    return (response)
 }

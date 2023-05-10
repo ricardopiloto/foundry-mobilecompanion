@@ -1,5 +1,8 @@
 import { Avatar, Button, Card, CardActions, CardContent, CardHeader, CardMedia, Typography } from "@mui/material"
-import { Worlds } from "../app/models/Worlds";
+import { Worlds } from "../../app/models/Worlds";
+import baseUrl from "../../helpers/artInfo";
+import { Link } from "react-router-dom";
+
 
 interface Props {
     world: Worlds;
@@ -23,7 +26,7 @@ export default function WorldCard({ world }: Props) {
             />
             <CardMedia
                 sx={{ height: 140}}
-                image={"https://tossurrpg.servegame.com/" + world.background}
+                image={`${baseUrl()}/` + world.background}
                 title={world.title}
             />
             <CardContent>
@@ -33,7 +36,7 @@ export default function WorldCard({ world }: Props) {
                 <Typography variant="body2" color="text.secondary"dangerouslySetInnerHTML={{ __html: description}}/>
             </CardContent>
             <CardActions>
-                <Button size="small">Open</Button>
+                <Button component={Link} to={`/actorscatalog/${world.id}`} size="small">Open</Button>
             </CardActions>
         </Card>
     )
